@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1705321520 source:d:\github\c-exercises\function_recursion_exercises\main.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+
