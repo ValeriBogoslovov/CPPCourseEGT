@@ -6,9 +6,9 @@
 // start of main function
 int main() {
 	// initializing 3 poiner variables for Book objects
-	Book b1("Where's Molly", "H. D. Carlton", "524-1-6-253");
-	Book b2("None of This Is True", "Lisa Jewell", "634-7-9-285");
-	Book b3("Powerless", "Lauren Roberts", "384-9-2-822");
+	Book* b1 = new Book("Where's Molly", "H. D. Carlton", "524-1-6-253");
+	Book* b2 = new Book("None of This Is True", "Lisa Jewell", "634-7-9-285");
+	Book* b3 = new Book("Powerless", "Lauren Roberts", "384-9-2-822");
 
 	Member m1("Valeri", 33, "635135");
 	Member m2("Dancho", 20, "962827");
@@ -28,9 +28,9 @@ int main() {
 
 	// adding the Book objects to vector
 	// using '&' before each object is to pass the memory address of each book
-	books.push_back(&b1);
-	books.push_back(&b2);
-	books.push_back(&b3);
+	books.push_back(b1);
+	books.push_back(b2);
+	books.push_back(b3);
 
 	// Member 1 will borrow 3rd book
 	members[0].borrowBook(books[2]);
@@ -43,6 +43,11 @@ int main() {
 	for (Member m : members) {
 		m.display();
 	}
+
+	//delete pointer variables
+	delete(b1);
+	delete(b2);
+	delete(b3);
 	// 0 will be printed when the program stops execution with no error
 	return 0;
 }

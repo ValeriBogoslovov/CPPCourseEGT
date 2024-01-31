@@ -20,6 +20,10 @@ int main() {
 	// print information about the employees in the department
 	d.displayEmployees();
 
+	// delete pointer variables
+	delete(e1Ptr);
+	delete(e2Ptr);
+	delete(e3Ptr);
 	// 0 will be printed to the console if the program reaches below line
 	return 0;
 }
