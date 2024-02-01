@@ -1,8 +1,0 @@
-# depslib dependency file v1.0
-1703153629 source:d:\github\c-exercises\unique_elements\main.cpp
-	<iostream>
-	<vector>
-	<string>
-	<algorithm>
-	<set>
-
