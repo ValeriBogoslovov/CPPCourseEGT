@@ -1,0 +1,2 @@
+This is a test of creating and writing a file.
+After the file is created and something was written on we are going to read the file.
