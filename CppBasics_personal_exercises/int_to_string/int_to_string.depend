@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1701953543 source:d:\github\c-exercises\cpp_basics\int_to_string\main.cpp
-	<iostream>
-	<string>
-	<sstream>
-	<algorithm>
-
