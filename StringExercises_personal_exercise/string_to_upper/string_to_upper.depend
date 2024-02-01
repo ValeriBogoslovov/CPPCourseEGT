@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1702308882 source:c:\users\homepc\desktop\github_cpp_exercises\testing-folder\string_to_upper\main.cpp
+	<iostream>
+	<string>
+	<algorithm>
+	<cctype>
+
