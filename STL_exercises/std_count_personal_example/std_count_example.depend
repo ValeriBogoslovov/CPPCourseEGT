@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1702304513 source:c:\users\homepc\desktop\github_cpp_exercises\testing-folder\std_count_example\main.cpp
+	<iostream>
+	<algorithm>
+	<vector>
+
