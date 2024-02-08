@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <stdexcept>
+#include <memory>
 
 #include "pugixml.h"
 #include "Employee.h"
@@ -8,9 +9,11 @@
 
 using namespace pugi;
 
+
+
 namespace xmlParse{
 	xml_document doc;
-	std::vector<Employee*> employees;
+	std::vector<std::unique_ptr<Employee>> employees;
 
 	bool checkLoadFile(const char* fileName) {
 		try
@@ -87,15 +90,16 @@ namespace xmlParse{
 					}
 				}
 			}
-			Employee* em = new Employee(empName, empPosition, empAge, wName, wFloor, wDesk);
-			employees.push_back(em);
+
+			employees.emplace_back(std::make_unique<Employee>(empName, empPosition, empAge, wName, wFloor, wDesk));
+			
 		}
 		
 	}
 
 	void printEmployeesInformation() {
 		std::cout << "Employee information: \n\n";
-		for (auto emp : employees) {
+		for (auto const &emp : employees) {
 			emp->printInfo();
 		}
 	}
