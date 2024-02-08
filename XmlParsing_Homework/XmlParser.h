@@ -31,10 +31,6 @@ namespace xmlParse{
 		return doc.child("EmployeesData").child("Employees");
 	}
 
-	xml_node getWorkstaion() {
-		return getEmployees().child("Employee");
-	}
-
 	void createEmployeesFromFile(const char* fileName) {
 		
 		checkLoadFile(fileName);
@@ -48,13 +44,13 @@ namespace xmlParse{
 		int wDesk = -1;
 
 		auto empIt = getEmployees();
-		auto workIt = doc.child("EmployeesData").child("Employees").child("Employee");
 
 		for (auto em : empIt.children("Employee"))
 		{
-
+			// em.attributes returns data inside Employee node
 			for (auto attr : em.attributes())
 			{
+				// attr.name() can be "Name", "Type" or "Age"
 				if (strcmp(attr.name(),"Name") == 0)
 				{
 					empName = attr.value();
@@ -70,8 +66,13 @@ namespace xmlParse{
 				}
 
 			}
+			// em.children("Workstation") navigates to node Workstation inside Employee node
+			// but not the actual attributes so we need another for loop for the attributes
 			for (auto w : em.children("Workstation")) {
+				// inside Workstation node
 				for (auto ww : w.attributes()) {
+					//ww.name() can be "Building", "Floor" or "Desc"
+					// strcmp() needen to compare pugi::char_t to string
 					if (strcmp(ww.name(), "Building") == 0)
 					{
 						wName = ww.value();
