@@ -1,11 +1,17 @@
 #include "TextureManager.h"
+#include <iostream>
 
 bool TextureManager::loadTexture(const char* fileName, std::string id, SDL_Renderer* ren) {
 
 	SDL_Surface* tempSurface = IMG_Load(fileName); // fileName is the file path from the project directory to the image
 
 	if (tempSurface == 0)
-		return false;  // something went wrong
+	{
+		std::cout << "Could not load file." << std::endl;
+
+		return false;// something went wrong
+	}
+		  
 
 	SDL_Texture* tex = SDL_CreateTextureFromSurface(ren, tempSurface);
 	SDL_FreeSurface(tempSurface);
@@ -28,8 +34,10 @@ void TextureManager::drawTexture(std::string id,
 	SDL_Rect srcRect;
 	SDL_Rect destRect;
 	srcRect.x = srcRect.y = 0;
-	srcRect.w = destRect.w = width;
-	srcRect.h = destRect.h = height;
+	srcRect.w = width;
+	srcRect.h = height;
+	destRect.h = 150;
+	destRect.w = 150;
 	destRect.x = x;
 	destRect.y = y;
 

@@ -19,4 +19,8 @@ private:
 	SDL_Renderer* renderer = NULL;
 	bool running;
 	int currentFrame;
+
+	int tempXRight = 0;
+	int tempXLeft = 0;
+	int accelerate = 50;
 };
