@@ -48,7 +48,8 @@ void Game::render() {
 
 	int ww, wh;
 	SDL_GetWindowSize(window, &ww, &wh); // assigns the window's width and height to ww and wh
-
+	//BEACH BALL
+	/************************** BEACH BALL MOVING *************************************************
 	int centeredVertical = (wh / 2) - (150 / 2); 
 	int endOfHorizontal = (ww - 150);
 	
@@ -88,7 +89,9 @@ void Game::render() {
 			tempXRight = tempXLeft;
 		}
 	}
-	
+	******************* END OF BEACH BALL MOVING **********************
+	*/
+	//SHAPE DRAWING
 	/*SDL_Rect fillRect = {ww / 4, wh / 4, ww / 2, wh / 2};
 	SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
 	SDL_RenderFillRect(renderer, &fillRect);
