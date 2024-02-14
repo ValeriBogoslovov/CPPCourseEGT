@@ -21,8 +21,9 @@ int main(int, char**) {
 
 	while (game->isRunning()) {
 		game->handleEvents();
-		game->update();
 		game->render();
+		game->update();
+		
 	}
 	game->clean();
 
