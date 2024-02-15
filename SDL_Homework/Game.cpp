@@ -18,8 +18,9 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
 				SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
 				// use the TextureManager to load textures
-				TextureManager::Instance()->loadTexture("assets/beach_ball.jpg", "beach_ball", renderer);
+				//TextureManager::Instance()->loadTexture("assets/beach_ball.jpg", "beach_ball", renderer); // beach ball
 				//TextureManager::Instance()->loadTexture("assets/sprite_sheet_mm_tp.png", "sprite_sheet", renderer);
+				TextureManager::Instance()->loadTexture("assets/sprite-animation.png", "sprite_anim", renderer);
 
 			}
 			else {
@@ -110,12 +111,22 @@ void Game::render() {
 
 	//DRAW CIRCLE*************************************************
 	SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-	Shapes::drawCircle(renderer, ww / 2, wh / 2, wh / 2 - 5);
+	Shapes::drawCircle(renderer, ww / 2, wh / 2, wh / 2 - 5);*/
 	//************************************************************
 
+
 	// animates the sprite sheet with the help of the update() function
-	TextureManager::Instance()->drawOneFrameFromTexture("sprite_sheet", 0, 0, 60, 70, 1, currentFrame, renderer);
-	// NOTICE: the textures rendered later overlap the previosly rendered textures*/
+	// SPRITESHEET ANIMATION
+	if (ww - 108 <= spriteX)
+	{
+		spriteX = ww - 108;
+	}
+	else if (spriteX <= 0)
+	{
+		spriteX = 0;
+	}
+	TextureManager::Instance()->drawOneFrameFromTexture("sprite_anim", spriteX, spriteY, 108, 140, currentRow, currentFrame, renderer, flip);
+	// NOTICE: the textures rendered later overlap the previosly rendered textures
 
 	SDL_RenderPresent(renderer);
 }
@@ -125,6 +136,31 @@ void Game::handleEvents() {
 	if (SDL_PollEvent(&event)) {
 		switch (event.type) {
 		case SDL_QUIT: running = false; break;
+		case SDL_KEYDOWN: {
+			if (event.key.keysym.sym == SDLK_RIGHT)
+			{
+				animeState = true;
+				currentRow = 1;
+				flip = SDL_FLIP_NONE;
+				spriteX+=5;
+			}
+			if (event.key.keysym.sym == SDLK_LEFT)
+			{
+				animeState = true;
+				currentRow = 2;
+				spriteX-=5;
+			}
+		}; break;
+		case SDL_KEYUP: {
+			if (event.key.keysym.sym == SDLK_RIGHT)
+			{
+				animeState = false;
+			}
+			if (event.key.keysym.sym == SDLK_LEFT)
+			{
+				animeState = false;
+			}
+		}
 		default: break;
 		}
 	}
@@ -139,9 +175,13 @@ void Game::update() {
 	//std::cout << "SDL_TICKS / 100 % 10:" << int(((SDL_GetTicks() / 100) % 10)) << "\n\n";
 
 
-	int numberOfFramesInSpriteSheet = 10;
-	int animationSpeed = 100; // lower is faster, min = 1
-	currentFrame = int(((SDL_GetTicks() / animationSpeed) % numberOfFramesInSpriteSheet));
+	int numberOfFramesInSpriteSheet = 8;
+	int animationSpeed = 70; // lower is faster, min = 1
+	if (animeState)
+	{
+		currentFrame = int(((SDL_GetTicks() / animationSpeed) % numberOfFramesInSpriteSheet));
+	}
+	
 }
 
 void Game::clean() {
