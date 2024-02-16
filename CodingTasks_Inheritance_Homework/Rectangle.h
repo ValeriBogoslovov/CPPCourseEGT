@@ -9,6 +9,6 @@ class Rectangle : public Shape
 public:
 	Rectangle(std::string color);
 	// function to print out the rectangle's color
-	void draw();
+	void draw() const;
 };
 
