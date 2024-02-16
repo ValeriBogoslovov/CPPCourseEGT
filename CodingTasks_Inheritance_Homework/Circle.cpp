@@ -3,7 +3,7 @@
 
 Circle::Circle(std::string color) : Shape(color){}
 
-void Circle::draw()
+void Circle::draw() const
 {
 	std::cout << "Drawing a " << this->color << " Circle.\n";
 }
