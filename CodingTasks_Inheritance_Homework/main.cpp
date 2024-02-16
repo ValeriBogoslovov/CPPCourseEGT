@@ -16,7 +16,6 @@ int main()
     Rectangle r;
     r.draw();
 
-
     return 0;
 }
 
