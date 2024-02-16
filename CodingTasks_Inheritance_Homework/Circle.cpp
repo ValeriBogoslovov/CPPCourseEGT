@@ -1,10 +1,7 @@
 #include "Circle.h"
 #include <iostream>
 
-Circle::Circle(std::string color) : Shape(color)
-{
-	this->color = color;
-}
+Circle::Circle(std::string color) : Shape(color){}
 
 void Circle::draw()
 {

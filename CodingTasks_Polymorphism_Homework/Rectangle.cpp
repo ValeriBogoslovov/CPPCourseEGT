@@ -3,10 +3,7 @@
 
 
 
-Rectangle::Rectangle(std::string color, double width, double height) : width(width), height(height)
-{
-    this->color = color;
-}
+Rectangle::Rectangle(std::string color, double width, double height) : Shape(color), width(width), height(height){}
 
 double Rectangle::area()
 {

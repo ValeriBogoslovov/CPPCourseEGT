@@ -1,10 +1,7 @@
 #include "Rectangle.h"
 #include <iostream>
 
-Rectangle::Rectangle(std::string color) : Shape(color)
-{
-	this->color = color;
-}
+Rectangle::Rectangle(std::string color) : Shape(color) {}
 
 void Rectangle::draw()
 {

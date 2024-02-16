@@ -5,6 +5,7 @@
 class Shape
 {
 public:
+	Shape(std::string color);
 	// pure virtual function that must be 
 	// overrided in derived classes
 	virtual double area() = 0;

@@ -2,10 +2,7 @@
 #include <iostream>
 
 
-Circle::Circle(std::string color, double radius) : radius(radius)
-{
-    this->color = color;
-}
+Circle::Circle(std::string color, double radius) : Shape(color), radius(radius){}
 
 double Circle::area()
 {
