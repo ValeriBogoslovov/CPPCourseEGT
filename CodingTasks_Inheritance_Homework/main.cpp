@@ -10,11 +10,11 @@ int main()
     Shape shape("Orange");
     shape.draw();
     
-    Circle c("Yellow");
-    c.draw();
+    Circle circle("Yellow");
+    circle.draw();
 
-    Rectangle r("Green");
-    r.draw();
+    Rectangle rectangle("Green");
+    rectangle.draw();
 
     return 0;
 }
