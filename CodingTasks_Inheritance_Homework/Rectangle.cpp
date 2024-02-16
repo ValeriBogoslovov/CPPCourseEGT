@@ -3,7 +3,7 @@
 
 Rectangle::Rectangle(std::string color) : Shape(color) {}
 
-void Rectangle::draw()
+void Rectangle::draw() const
 {
 	std::cout << "Drawing a " << this->color << " Rectangle.\n";
 }
