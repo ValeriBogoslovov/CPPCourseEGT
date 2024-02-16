@@ -7,7 +7,7 @@ class Shape
 public:
 	Shape(std::string color);
 	// function to print out the shape's color
-	void draw();
+	void draw() const;
 // protected members and function will only be accessible
 // in derived classes
 protected:
