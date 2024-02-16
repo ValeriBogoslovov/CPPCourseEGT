@@ -11,6 +11,6 @@ class Circle : public Shape
 public:
 	Circle(std::string color);
 	// function to print out the circle's color
-	void draw();
+	void draw() const;
 };
 
