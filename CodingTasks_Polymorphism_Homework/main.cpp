@@ -11,12 +11,15 @@ void printArea(Shape* sPtr);
 int main()
 {
     // create pointer of Shape class that points to an object of derived class
-    Shape* circlePtr = new Circle();
-    Shape* rectanglePtr = new Rectangle();
+    Shape* circlePtr = new Circle("blue", 5.2);
+    Shape* rectanglePtr = new Rectangle("grey", 2.6, 3.8);
 
     // call function printArea and pass circle and rectangle
     printArea(circlePtr);
     printArea(rectanglePtr);
+
+    circlePtr->draw();
+    rectanglePtr->draw();
 
     return 0;
 }

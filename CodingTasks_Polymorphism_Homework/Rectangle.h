@@ -5,13 +5,16 @@
 class Rectangle : public Shape
 {
 public:
-	// overriding area function from base class Shape
+	Rectangle(std::string color,double width, double height);
+
+	// overriding area and draw function from base class Shape
 	double area() override;
+	void draw() override;
 private:
 	// private members
 
-	//declare and initialize width and height
-	double width = 3;
-	double height = 4;
+	//declare width and height
+	double width;
+	double height;
 };
 

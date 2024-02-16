@@ -5,13 +5,16 @@
 class Circle : public Shape
 {
 public:
+	Circle(std::string color, double radius);
+
 	// overriding area function from base class Shape
 	double area() override;
-private:
-	//private members
+	void draw() override;
 
-	//declare and initialize radius
-	double radius = 5;
+//private members
+private:
+	//declare radius
+	double radius;
 	// constant attribute PI
 	double PI = 3.14;
 };
