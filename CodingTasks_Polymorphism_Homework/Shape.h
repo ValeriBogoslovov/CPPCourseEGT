@@ -9,7 +9,7 @@ public:
 	// pure virtual function that must be 
 	// overrided in derived classes
 	virtual double area() = 0;
-	virtual void draw() const = 0;
+	virtual void draw() = 0;
 	// virtual destructor is needed when we have
 	// at least one virtual function;
 	virtual ~Shape() {};
