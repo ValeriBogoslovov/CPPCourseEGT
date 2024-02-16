@@ -10,8 +10,8 @@ public:
 	Book(std::string title, std::string author, int pages);
 
 	//function to display book information
-	void display();
-// nin-accessible members, functions
+	void display() const;
+// non-accessible members, functions
 private:
 	std::string title;
 	std::string author;
