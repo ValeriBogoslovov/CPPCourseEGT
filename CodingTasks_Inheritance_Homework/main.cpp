@@ -7,13 +7,13 @@
 int main()
 {
     //create objects and call draw function
-    Shape shape;
+    Shape shape("Orange");
     shape.draw();
     
-    Circle c;
+    Circle c("Yellow");
     c.draw();
 
-    Rectangle r;
+    Rectangle r("Green");
     r.draw();
 
     return 0;
