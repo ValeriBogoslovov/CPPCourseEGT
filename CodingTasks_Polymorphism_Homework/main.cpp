@@ -18,6 +18,7 @@ int main()
     printArea(circlePtr);
     printArea(rectanglePtr);
 
+    // call function draw
     circlePtr->draw();
     rectanglePtr->draw();
 
