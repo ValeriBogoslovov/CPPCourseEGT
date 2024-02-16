@@ -22,6 +22,13 @@ int main()
     circlePtr->draw();
     rectanglePtr->draw();
 
+    // delete dynamic object to release memory and prevent memory leaks
+    delete circlePtr;
+    delete rectanglePtr;
+    // assign null value to release the memory address
+    circlePtr = nullptr;
+    rectanglePtr = nullptr;
+
     return 0;
 }
 
