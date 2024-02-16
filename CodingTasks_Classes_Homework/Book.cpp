@@ -6,7 +6,7 @@ Book::Book(std::string title, std::string author, int pages)
 	:title(title), author(author), pages(pages){}
 
 // display function initialization
-void Book::display()
+void Book::display() const
 {
 	// print on the console
 	std::cout << "Book title: " << this->title
